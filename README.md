@@ -1,4 +1,5 @@
 # CloudyLauncher
+<<<<<<< HEAD
 
 CloudyLauncher is a Windows desktop launcher for managing and launching custom Minecraft Java Edition experiences.
 
@@ -47,3 +48,6 @@ CloudyLauncher is built with:
 ## Status
 
 CloudyLauncher is currently in development and is not yet distributed as a public release.
+=======
+Desktop launcher for managing and launching custom Minecraft Java Edition experiences.
+>>>>>>> aa89654ea20da88dccc0d5f0eb1c9bd2cce1652d
