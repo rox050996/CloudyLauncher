@@ -1,0 +1,17 @@
+{
+  "instances": [
+    {
+      "id": "apocalipsis",
+      "name": "Apocalipsis",
+      "category": "SERIE",
+      "description": "El mundo ha caído. Sobrevive, explora y descubre qué ocurrió.",
+      "minecraftVersion": "1.20.1",
+      "loader": "Forge",
+      "loaderVersion": "47.4.0",
+      "javaVersion": 17,
+      "packVersion": "0.1.0",
+      "visibility": "private",
+      "icon": "☣"
+    }
+  ]
+}

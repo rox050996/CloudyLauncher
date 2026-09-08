@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    CloudyLauncher
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       CUENTA MICROSOFT
+  ====================================== -->
+
+  <div
+    id="account-control"
+    class="account-control"
+  >
+
+    <button
+      id="account-trigger"
+      class="account-trigger"
+      type="button"
+      aria-label="Cuenta Microsoft"
+      aria-expanded="false"
+    >
+
+      <span
+        id="account-avatar"
+        class="account-avatar"
+      >
+
+        <span
+          id="account-avatar-fallback"
+          class="account-avatar-fallback"
+        >
+          ?
+        </span>
+
+        <span
+          id="account-skin-base"
+          class="skin-face-layer skin-face-base hidden"
+        >
+        </span>
+
+        <span
+          id="account-skin-overlay"
+          class="skin-face-layer skin-face-overlay hidden"
+        >
+        </span>
+
+      </span>
+
+    </button>
+
+
+    <div
+      id="account-menu"
+      class="account-menu hidden"
+    >
+      <div class="account-menu-loading">
+        Comprobando cuenta...
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
+       SIDEBAR
+  ====================================== -->
+
+  <aside class="sidebar">
+
+
+    <div class="logo">
+
+      <div class="cloud">
+        ☁
+      </div>
+
+
+      <div class="logo-text">
+
+        <span>
+          CLOUDY
+        </span>
+
+        <small>
+          LAUNCHER
+        </small>
+
+      </div>
+
+    </div>
+
+
+
+    <nav>
+
+
+      <button
+        class="nav-item active"
+        data-page="home"
+      >
+
+        <span class="nav-icon">
+          🏠
+        </span>
+
+        Inicio
+
+      </button>
+
+
+
+      <button
+        class="nav-item"
+        id="add-instance-nav"
+      >
+
+        <span class="nav-icon">
+          ＋
+        </span>
+
+        Agregar instancia
+
+      </button>
+
+
+
+      <button
+        class="nav-item"
+        data-page="instances"
+      >
+
+        <span class="nav-icon">
+          🎮
+        </span>
+
+        Instancias
+
+      </button>
+
+
+
+      <button
+        class="nav-item"
+        data-page="settings"
+      >
+
+        <span class="nav-icon">
+          ⚙
+        </span>
+
+        Ajustes
+
+      </button>
+
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+      <span id="launcher-version">
+        CloudyLauncher
+      </span>
+
+    </div>
+
+
+  </aside>
+
+
+
+  <!-- =====================================
+       CONTENIDO
+  ====================================== -->
+
+  <main class="content">
+
+
+
+    <!-- ===================================
+         INICIO
+    ==================================== -->
+
+    <div
+      class="page active"
+      id="page-home"
+    >
+
+
+      <header class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            BIENVENIDA A
+          </p>
+
+          <h1>
+            CloudyLauncher
+          </h1>
+
+        </div>
+
+
+        <div class="launcher-status">
+
+          <span class="status-dot">
+          </span>
+
+          Launcher listo
+
+        </div>
+
+      </header>
+
+
+
+      <section class="hero">
+
+
+        <span class="hero-tag">
+          ☁ CLOUDY NETWORK
+        </span>
+
+
+        <h2>
+
+          Todos tus mundos.
+
+          <br>
+
+          <span>
+            Un solo launcher.
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          Instala, actualiza y juega nuestras
+          experiencias de Minecraft sin preocuparte
+          por Java, mods o configuraciones.
+
+        </p>
+
+
+      </section>
+
+
+
+      <section>
+
+
+        <div class="section-title">
+
+          <div>
+
+            <p class="eyebrow">
+              TUS MUNDOS
+            </p>
+
+            <h2>
+              Instancias
+            </h2>
+
+          </div>
+
+
+          <span id="instance-count">
+            Cargando...
+          </span>
+
+        </div>
+
+
+
+        <div id="instances-container">
+
+          <div class="loading-box">
+            Comprobando instancias...
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+    </div>
+
+
+
+    <!-- ===================================
+         INSTANCIAS
+    ==================================== -->
+
+    <div
+      class="page"
+      id="page-instances"
+    >
+
+
+      <header class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            CLOUDY LAUNCHER
+          </p>
+
+          <h1>
+            Instancias
+          </h1>
+
+        </div>
+
+
+        <button
+          id="add-instance-button"
+          class="primary-button"
+        >
+          + AGREGAR INSTANCIA
+        </button>
+
+      </header>
+
+
+
+      <div class="section-title">
+
+        <div>
+
+          <p class="eyebrow">
+            TUS MUNDOS
+          </p>
+
+          <h2>
+            Instancias disponibles
+          </h2>
+
+        </div>
+
+      </div>
+
+
+
+      <div
+        id="all-instances-container"
+        class="manager-grid"
+      >
+
+        <div class="loading-box">
+          Comprobando instancias...
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================
+         AJUSTES
+    ==================================== -->
+
+    <div
+      class="page"
+      id="page-settings"
+    >
+
+
+      <header class="page-header">
+
+        <div>
+
+          <p class="eyebrow">
+            CLOUDY LAUNCHER
+          </p>
+
+          <h1>
+            Ajustes
+          </h1>
+
+        </div>
+
+      </header>
+
+
+
+      <section class="settings-card">
+
+
+        <div class="settings-title-row">
+
+          <div class="settings-icon">
+            🧠
+          </div>
+
+
+          <div>
+
+            <h2>
+              Memoria RAM
+            </h2>
+
+
+            <p>
+
+              Elige cuánta memoria puede utilizar
+              Minecraft al iniciar una instancia.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="ram-panel">
+
+
+          <div class="ram-header">
+
+            <span>
+              MEMORIA ASIGNADA
+            </span>
+
+
+            <strong id="ram-value">
+              8 GB
+            </strong>
+
+          </div>
+
+
+
+          <input
+            id="ram-slider"
+            class="ram-slider"
+            type="range"
+            min="4096"
+            max="16384"
+            step="1024"
+            value="8192"
+          >
+
+
+
+          <div class="ram-scale">
+
+            <span id="ram-min">
+              4 GB
+            </span>
+
+
+            <span id="ram-max">
+              16 GB
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <p
+          id="ram-message"
+          class="settings-message"
+        >
+          Los cambios se guardan automáticamente.
+        </p>
+
+
+      </section>
+
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =====================================
+       MODAL CÓDIGO
+  ====================================== -->
+
+  <div
+    id="instance-code-modal"
+    class="modal-overlay hidden"
+  >
+
+
+    <div class="modal">
+
+
+      <button
+        id="close-code-modal"
+        class="modal-close"
+      >
+        ×
+      </button>
+
+
+      <p class="eyebrow">
+        CLOUDY LAUNCHER
+      </p>
+
+
+      <h2>
+        Agregar instancia
+      </h2>
+
+
+      <p class="modal-description">
+
+        Introduce el código que recibiste
+        para desbloquear tu instancia.
+
+      </p>
+
+
+
+      <label
+        for="instance-code-input"
+        class="input-label"
+      >
+        Código de instancia
+      </label>
+
+
+
+      <input
+        id="instance-code-input"
+        type="text"
+        placeholder="APOC-TEST-2026"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+
+
+      <p
+        id="code-message"
+        class="code-message"
+      >
+      </p>
+
+
+
+      <div class="modal-actions">
+
+
+        <button
+          id="cancel-code"
+          class="secondary-button"
+        >
+          CANCELAR
+        </button>
+
+
+        <button
+          id="redeem-code"
+          class="primary-button"
+        >
+          AGREGAR
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <!-- =====================================
+       MODAL MICROSOFT
+  ====================================== -->
+
+  <div
+    id="microsoft-auth-modal"
+    class="modal-overlay hidden"
+  >
+
+    <div class="modal microsoft-auth-modal">
+
+      <button
+        id="close-microsoft-auth-modal"
+        class="modal-close"
+        type="button"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+
+      <div class="microsoft-auth-heading">
+
+        <div class="microsoft-mark">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+
+        <div>
+
+          <p class="eyebrow">
+            CUENTA DE MINECRAFT
+          </p>
+
+          <h2>
+            Conectar con Microsoft
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <p
+        id="microsoft-auth-description"
+        class="modal-description"
+      >
+        Preparando el inicio de sesión...
+      </p>
+
+
+      <div
+        id="microsoft-code-box"
+        class="microsoft-code-box hidden"
+      >
+
+        <span class="microsoft-code-label">
+          TU CÓDIGO
+        </span>
+
+        <strong id="microsoft-user-code">
+          ---- ----
+        </strong>
+
+        <button
+          id="copy-microsoft-code"
+          class="microsoft-copy-button"
+          type="button"
+        >
+          COPIAR CÓDIGO
+        </button>
+
+        <small>
+          Ya abrimos la página oficial de Microsoft en tu navegador.
+          Escribe ahí este código para continuar.
+        </small>
+
+      </div>
+
+
+      <p
+        id="microsoft-auth-message"
+        class="microsoft-auth-message"
+      >
+      </p>
+
+
+      <div class="modal-actions">
+
+        <button
+          id="hide-microsoft-auth-modal"
+          class="secondary-button"
+          type="button"
+        >
+          OCULTAR
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="renderer.js"></script>
+
+
+</body>
+
+</html>
